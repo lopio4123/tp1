@@ -9,7 +9,6 @@ public class Personnage
 	int pvs;
 	int ini;
 	boolean statut;
-	int iniRandom;
 	
 	
     // -------------------------------------------------------------------------
@@ -39,10 +38,6 @@ public class Personnage
     // -------------------------------------------------------------------------
     
     // DO : Les getters
-    public int getIniRandom()
-    {
-    	return iniRandom;
-    }
     public boolean getStatut()
     {
     	return statut;
@@ -96,10 +91,6 @@ public class Personnage
 	{
 		this.ini = ini;
 	}
-    public void setIniRandom(int iniRandom)
-    {
-    	this.iniRandom = iniRandom;
-    }
     
     
     
@@ -133,10 +124,18 @@ public class Personnage
     public static void frapperPersonnage(Personnage personnageCible, Personnage personnageAttaquant) 
     {
         // TODO : Récupérer la valeur d'attaque pour ce tour, calculer les dégats,
-    	int degat = personnageAttaquant.attaqueCalcul();
+    	int puissance =personnageAttaquant.attaqueCalcul();
+    	int degat = puissance - personnageCible.defense;
+    	//si les degats sont dans le negatif
+    	if (degat < 0) degat = 0;
+    	personnageCible.pvs -= degat;
+    	if(personnageCible.pvs < 0) personnageCible.pvs = 0;
+    	//si le personnage meurt
+    	if (personnageCible.pvs <= 0) personnageCible.statut = false;
         //modifier les points de vie du personnage cible, afficher les détails
-    	System.out.println("\n" + personnageAttaquant.getNom() + " attaque avec une puissance de : " + degat);
+    	System.out.println("\n" + personnageAttaquant.getNom() + " attaque avec une puissance de : " + puissance);
     	System.out.println("\n" + personnageCible.getNom() + " a une défense de : " + personnageCible.getDefense());
+    	System.out.println("\n les degats subis sont de : " + degat);
     	
         // sur l'attaque, tel que montré dans l'énoncé.
     }
@@ -147,7 +146,7 @@ public class Personnage
         // DO : Modifier de façon aléatoire la valeur INI du personnage.
     	Random rand = new Random();
 		int minValue = 0;
-		int maxValue = ini;
-		iniRandom = rand.nextInt(maxValue - minValue) + minValue;		
+		int maxValue = 100;
+		ini = rand.nextInt(maxValue - minValue) + minValue;		
     }
 }

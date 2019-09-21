@@ -23,33 +23,40 @@ public class JeuGladiateurs
         affichage.debutCombat();
         tour.CompteurDeTour();
         //boucle qui continue tant que l'un des gladiateur n'est pas mort
-        //do
-        //{
+        do
+        {
         	tour.afficheTour();
-        	personnage1.setNewIniRandom();
-        	personnage2.setNewIniRandom();
+        	
         	//boucle d'initiative
         	 for(int ini = 0;ini <= 100;ini++)
         	 {
         		 //si le premier personnage attaque à premier
-        		 if(ini == personnage1.getIniRandom())
+        		 if(ini == personnage1.getIni())
         		 {
         			 Personnage.frapperPersonnage(personnage2,personnage1);
+        			 //si le personnage 2 decede, il ne peux plus attaquer
+        			 if (personnage2.getStatut()==false) break;
+        			 Personnage.frapperPersonnage(personnage1,personnage2);
         			 break;
         		 }
         		 //si le deuxieme personnage attaque en premier
-        		 else if(ini == personnage2.getIniRandom())
+        		 else if(ini == personnage2.getIni())
         		 {
-        			 
+        			 Personnage.frapperPersonnage(personnage1,personnage2);
+        			//si le personnage 1 decede, il ne peux plus attaquer
+        			 if (personnage1.getStatut()==false) break;
+        			 Personnage.frapperPersonnage(personnage2,personnage1);
         			 break;
         		 }
         	 }
-        	affichage.afficherSeparateurInfosPerso();
-        	personnage1.afficherInfosPersonnage();
-        	personnage2.afficherInfosPersonnage();
-        	affichage.afficherSeparateurDeTour();
-        	tour.augmenteTour();
-        //}while(personnage1.getStatut == true && personnage2.getStatut);
+        	 personnage1.setNewIniRandom();
+        	 personnage2.setNewIniRandom();
+        	 affichage.afficherSeparateurInfosPerso();
+        	 personnage1.afficherInfosPersonnage();
+        	 personnage2.afficherInfosPersonnage();
+        	 affichage.afficherSeparateurDeTour();
+        	 tour.augmenteTour();
+        }while(personnage1.getStatut() == true && personnage2.getStatut() == true);
         
     }
 
