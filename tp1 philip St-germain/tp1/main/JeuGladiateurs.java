@@ -33,19 +33,19 @@ public class JeuGladiateurs
         		 //si le premier personnage attaque à premier
         		 if(ini == personnage1.getIni())
         		 {
-        			 Personnage.frapperPersonnage(personnage2,personnage1);
+        			 personnage1.frapperPersonnage(personnage2);
         			 //si le personnage 2 decede, il ne peux plus attaquer
         			 if (personnage2.getStatut()==false) break;
-        			 Personnage.frapperPersonnage(personnage1,personnage2);
+        			 personnage2.frapperPersonnage(personnage1);
         			 break;
         		 }
         		 //si le deuxieme personnage attaque en premier
         		 else if(ini == personnage2.getIni())
         		 {
-        			 Personnage.frapperPersonnage(personnage1,personnage2);
+        			 personnage2.frapperPersonnage(personnage1);
         			//si le personnage 1 decede, il ne peux plus attaquer
         			 if (personnage1.getStatut()==false) break;
-        			 Personnage.frapperPersonnage(personnage2,personnage1);
+        			 personnage1.frapperPersonnage(personnage2);
         			 break;
         		 }
         	 }

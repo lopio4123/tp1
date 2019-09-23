@@ -3,12 +3,12 @@ import java.util.Random;
 
 public class Personnage 
 {
-	String nom;
-	int attaqueMax;
-	int defense;
-	int pvs;
-	int ini;
-	boolean statut;
+	private String nom;
+	private int attaqueMax;
+	private int defense;
+	private int pvs;
+	private int ini;
+	private boolean statut;
 	
 	
     // -------------------------------------------------------------------------
@@ -121,19 +121,22 @@ public class Personnage
     }
 
     // -------------------------------------------------------------------------
-    public static void frapperPersonnage(Personnage personnageCible, Personnage personnageAttaquant) 
+    public void frapperPersonnage(Personnage personnageCible) 
     {
         // TODO : Récupérer la valeur d'attaque pour ce tour, calculer les dégats,
-    	int puissance =personnageAttaquant.attaqueCalcul();
-    	int degat = puissance - personnageCible.defense;
+    	int puissance = attaqueCalcul();
+    	int degat = puissance - personnageCible.getDefense();
+    	int pvsRestant=0;
     	//si les degats sont dans le negatif
     	if (degat < 0) degat = 0;
-    	personnageCible.pvs -= degat;
-    	if(personnageCible.pvs < 0) personnageCible.pvs = 0;
+    	pvsRestant = personnageCible.getPvs() - degat;
+    	personnageCible.setPvs(pvsRestant);
+    	//si les pvs sont dans le négatif, on les remets à 0
+    	if(personnageCible.getPvs() < 0) personnageCible.setPvs(0);
     	//si le personnage meurt
-    	if (personnageCible.pvs <= 0) personnageCible.statut = false;
+    	if (personnageCible.getPvs() <= 0) personnageCible.setStatut(false);
         //modifier les points de vie du personnage cible, afficher les détails
-    	System.out.println("\n" + personnageAttaquant.getNom() + " attaque avec une puissance de : " + puissance);
+    	System.out.println("\n" + getNom() + " attaque avec une puissance de : " + puissance);
     	System.out.println("\n" + personnageCible.getNom() + " a une défense de : " + personnageCible.getDefense());
     	System.out.println("\n les degats subis sont de : " + degat);
     	
@@ -147,6 +150,6 @@ public class Personnage
     	Random rand = new Random();
 		int minValue = 0;
 		int maxValue = 100;
-		ini = rand.nextInt(maxValue - minValue) + minValue;		
+		setIni(rand.nextInt(maxValue - minValue) + minValue);		
     }
 }

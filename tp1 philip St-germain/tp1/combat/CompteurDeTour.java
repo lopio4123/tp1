@@ -9,17 +9,17 @@ public class CompteurDeTour
     public void CompteurDeTour() 
     {
         // DO : Constructeur SANS paramètres qui initialise un compteur de tour (attribut) à 1
-    	numeroDeTour = 1;
+    	setNumeroDeTour(1);
     }
 
     // -------------------------------------------------------------------------
-    // TODO : Le getter
+    // DO : Le getter
     public int getNumeroDeTour() 
     {
 		return numeroDeTour;
 	}
     // -------------------------------------------------------------------------
-    // TODO : Le setter
+    // DO : Le setter
     public void setNumeroDeTour(int numeroDeTour) 
     {
 		this.numeroDeTour = numeroDeTour;
@@ -28,7 +28,7 @@ public class CompteurDeTour
     public void augmenteTour() 
     {
         // DO : Incrémenter le compteur de tour
-    	numeroDeTour++;
+    	setNumeroDeTour(numeroDeTour + 1);
     }
 
 	// -------------------------------------------------------------------------
