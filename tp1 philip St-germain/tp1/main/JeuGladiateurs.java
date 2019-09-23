@@ -57,6 +57,8 @@ public class JeuGladiateurs
         	 affichage.afficherSeparateurDeTour();
         	 tour.augmenteTour();
         }while(personnage1.getStatut() == true && personnage2.getStatut() == true);
+        //message de victoire
+        affichage.afficheVictoire(personnage1, personnage2);
         
     }
 

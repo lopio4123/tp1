@@ -24,6 +24,17 @@ public class AffichageEcran
     public void afficheVictoire(Personnage personnage1, Personnage personnage2) 
     {
         // TODO : Afficher le gagnant du combat, tel que montré dans l'énoncé
+    	//si le personnage 2 gagne
+    	 if(personnage1.getStatut() == false)
+         {
+         	System.out.println("\n\n" + personnage2.getNom() + " Est le grand gagnant de ce combat !!! \n");
+         }
+         //si le personnage 1 gagne
+    	 else if(personnage2.getStatut() == false)
+         {
+         	System.out.println("\n\n" + personnage1.getNom() + " Est le grand gagnant de ce combat !!! \n");
+         }
+    	
     }
     public void debutCombat()
     {

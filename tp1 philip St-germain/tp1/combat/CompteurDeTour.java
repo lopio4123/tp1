@@ -3,7 +3,7 @@ package combat;
 
 public class CompteurDeTour 
 {
-	int numeroDeTour=0;
+	int  numeroDeTour=0;
 
     // -------------------------------------------------------------------------
     public void CompteurDeTour() 
@@ -35,7 +35,7 @@ public class CompteurDeTour
     public void afficheTour() 
     {
         // DO : Afficher le tour actuel, tel que montré dans l'énoncé
-    	System.out.println("\n---------------\n TOUR ACTUEL: 1\n ---------------" );
+    	System.out.println("\n---------------\n TOUR ACTUEL: " + numeroDeTour + "\n ---------------" );
     	
     }
 }
