@@ -6,7 +6,7 @@ public class CompteurDeTour
 	int  numeroDeTour=0;
 
     // -------------------------------------------------------------------------
-    public void CompteurDeTour() 
+    public void compteurDeTour() 
     {
         // DO : Constructeur SANS paramètres qui initialise un compteur de tour (attribut) à 1
     	setNumeroDeTour(1);

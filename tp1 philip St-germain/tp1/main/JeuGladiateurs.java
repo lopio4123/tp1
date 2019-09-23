@@ -1,6 +1,7 @@
 package main;
 
 import personnage.Personnage;
+import personnage.Retiaire;
 import combat.CompteurDeTour;
 import combat.AffichageEcran;
 
@@ -15,16 +16,18 @@ public class JeuGladiateurs
         CompteurDeTour tour = new CompteurDeTour();
         AffichageEcran affichage = new AffichageEcran();
         //initialisation de bob le malchanceux
-        Personnage personnage1 = new Personnage("Bob le malchanceux",15,15,70,15,true); //L'initialisation du personnage doit se faire dans le constructeur
+        Retiaire personnage1 = new Retiaire("Bob le malchanceux",15,15,70,15,true); //L'initialisation du personnage doit se faire dans le constructeur
         Personnage personnage2 = new Personnage("Igor l'empaleur ",25,5,100,30,true); //L'initialisation du personnage doit se faire dans le constructeur
         
         personnage1.afficherInfosPersonnage();
         personnage2.afficherInfosPersonnage();
         affichage.debutCombat();
-        tour.CompteurDeTour();
+        tour.compteurDeTour();
         //boucle qui continue tant que l'un des gladiateur n'est pas mort
         do
         {
+        	personnage1.attaqueRetiaire(personnage2);
+        	//personnage1.attaqueRetiaire(personnage2);
         	tour.afficheTour();
         	
         	//boucle d'initiative
