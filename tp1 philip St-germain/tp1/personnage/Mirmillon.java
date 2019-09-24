@@ -24,12 +24,13 @@ public class Mirmillon extends Personnage {
 
 		// si le personnage cible meurt de la premiere attaque
 		if (personnageCible.getPvs() == 0) {
-			System.out.println("\n" + getNom() + "Decapite joyeusement le pauvre " + personnageCible.getNom()
+			System.out.println("\n" + getNom() + " Decapite joyeusement le pauvre " + personnageCible.getNom()
 					+ " qui tante vainement de séchaper.\n");
 		}
 
 		// si il survit, il attaque a nouveau
 		else {
+			System.out.println("\n" + getNom() + " attaque de nouveau\n");
 			frapperPersonnage(personnageCible);
 		}
 	}
