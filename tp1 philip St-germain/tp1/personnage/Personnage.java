@@ -138,7 +138,7 @@ public class Personnage
         //modifier les points de vie du personnage cible, afficher les détails
     	System.out.println("\n" + getNom() + " attaque avec une puissance de : " + puissance);
     	System.out.println("\n" + personnageCible.getNom() + " a une défense de : " + personnageCible.getDefense());
-    	System.out.println("\n les degats subis sont de : " + degat);
+    	System.out.println("\nles degats subis sont de : " + degat);
     	
         // sur l'attaque, tel que montré dans l'énoncé.
     }
